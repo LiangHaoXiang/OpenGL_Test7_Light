@@ -13,5 +13,7 @@ void main()
 {
     gl_Position = projection * view * model * vec4(aPos, 1.0);
     FragPos = vec3(model * vec4(aPos, 1.0));
-    Normal = aNormal;
+    //使用inverse和transpose函数自己生成这个法线矩阵
+    //法线矩阵让法向量转换在世界空间坐标中
+    Normal = mat3(transpose(inverse(model))) * aNormal;
 }
