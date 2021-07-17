@@ -18,6 +18,7 @@ void main()
     FragPos = vec3(view * model * vec4(aPos, 1.0));
     //使用inverse和transpose函数自己生成这个法线矩阵
     //法线矩阵让法向量转换在世界空间坐标中
+    //inverse函数：得到逆矩阵。      transpose函数：得到转置矩阵
     Normal = mat3(transpose(inverse(view * model))) * aNormal;
     LightPos = vec3(view * vec4(lightPos, 1.0));
 }
